@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
-  <style type="text/css">
-html, body {
-  height: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
 
-body {
-  height: 100vh;
-  font-size: 1.05em;
-  font-family: "Helvetica", "Arial", sans-serif;
-  max-width: 32em;
-}
+    body {
+      height: 100vh;
+      max-width: 32em;
+      font-size: 1.05em;
+      font-family: Helvetica, Arial, sans-serif;
+    }
 
-a {
-  color: rgb(59, 130, 246);
-}
+    a { color: rgb(59, 130, 246); }
 
-.nav {
-  padding-top: 15px;
-}
+    .nav { padding-top: 15px; }
 
-.nav a  {
-  color: rgb(113, 113, 122);
-  text-decoration: none;
-  display: inline-block;
-  font-family: "Noto Sans Mono", "Consolas", monospace;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
+    .nav a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      color: rgb(113, 113, 122);
+      font-family: "Noto Sans Mono", Consolas, monospace;
+      text-decoration: none;
+    }
 
-.nav a:hover {
-  color: black;
-  text-decoration: underline;
-}
-{% block css %}
+    .nav a:hover {
+      color: black;
+      text-decoration: underline;
+    }
 
-{% endblock css %}
+    {% block css %}{% endblock %}
   </style>
 </head>
 <body>
   <div class="nav">
-    <a href="/">home</a>
-    <a href="/ramblings">ramblings</a>
+    <a href="{{ url_for('index') }}">home</a>
+    <a href="{{ url_for('ramblings') }}">ramblings</a>
     <a href="mailto:derukugi@tuta.io">email</a>
   </div>
   <div class="container">
-  {% block body %}
-  
-  {% endblock body %}
+    {% block body %}{% endblock %}
   </div>
 </body>
 </html>
